@@ -42,7 +42,7 @@ export default function Modal() {
 
             if (isTaskEdited) {
 
-                let updatedTaskList = taskList.map((taskInList) => {
+                const updatedTaskList = taskList.map((taskInList) => {
                     if (taskInList.id === isTaskEdited.id) {
                         return task;
                     }
@@ -71,7 +71,7 @@ export default function Modal() {
         }
         else {
 
-            let updatedSubTasksList = [...task.subTasks, { ...subTask, id: uuidv4() }]
+            const updatedSubTasksList = [...task.subTasks, { ...subTask, id: uuidv4() }]
             setTask({ ...task, subTasks: updatedSubTasksList });
             setSubTask(subTaskSample);
         }
@@ -80,7 +80,7 @@ export default function Modal() {
     // function to delete subtask
     const deleteSubTask = (subTaskId) => {
 
-        let updatedSubTasksList = task.subTasks.filter((sub) => sub.id !== subTaskId);
+        const updatedSubTasksList = task.subTasks.filter((sub) => sub.id !== subTaskId);
         setTask({ ...task, subTasks: updatedSubTasksList });
     }
 
