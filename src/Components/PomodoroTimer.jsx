@@ -20,19 +20,6 @@ export default function PomodoroTimer({ focusDuration, breakDuration }) {
   if (minutesLeft < 10) minutesLeft = `0${minutesLeft}`;
   if (secondsLeft < 10) secondsLeft = `0${secondsLeft}`;
 
-  const switchPomodoroSession = (sessionName) => {
-
-    setPomodoroMode(sessionName);
-
-    let newTimeInSeconds = sessionName === "focus" ? focusMinutes * 60 : breakMinutes * 60;
-
-    handleStopInterval();
-    setTimerOn(false);
-    setSeconds(newTimeInSeconds);
-    secondsRef.current = newTimeInSeconds;
-
-  }
-
   const handleSecondsUpdate = () => {
     secondsRef.current--;
     setSeconds(secondsRef.current);
@@ -52,6 +39,20 @@ export default function PomodoroTimer({ focusDuration, breakDuration }) {
     }, 1000);
     setTimerOn(true);
   };
+
+  
+  const switchPomodoroSession = (sessionName) => {
+
+    setPomodoroMode(sessionName);
+
+    let newTimeInSeconds = sessionName === "focus" ? focusMinutes * 60 : breakMinutes * 60;
+
+    handleStopInterval();
+    setTimerOn(false);
+    setSeconds(newTimeInSeconds);
+    secondsRef.current = newTimeInSeconds;
+
+  }
 
   useEffect(() => {
     setSeconds(focusDuration * 60);

@@ -40,7 +40,7 @@ export default function PomodoroPage() {
 
                     <ul>
                         {selectedTask.subTasks.map((subTask) => {
-                            return <li>{subTask.content}</li>
+                            return <li key={subTask.id}>{subTask.content}</li>
                         })}
                     </ul>
 
