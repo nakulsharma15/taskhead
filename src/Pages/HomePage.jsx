@@ -35,7 +35,7 @@ export default function HomePage() {
 
           <Filters />
 
-          <button onClick={() => setShowModal(true)} className="add-task-button">
+          <button type="button" onClick={() => setShowModal(true)} className="add-task-button">
             <p>Add a new task</p>
             <span className="material-icons-outlined">
               add

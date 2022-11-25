@@ -62,20 +62,20 @@ export default function PomodoroTimer({ focusDuration, breakDuration }) {
     <div className="pomodoro-timer-div">
 
       <div className="pomodoro-mode-div">
-        <button className="pomodoro-mode-button focus-mode-button" onClick={() => switchPomodoroSession("focus")}>Focus Mode</button>
+        <button type="button" className="pomodoro-mode-button focus-mode-button" onClick={() => switchPomodoroSession("focus")}>Focus Mode</button>
 
-        <button className="pomodoro-mode-button break-mode-button" onClick={() => switchPomodoroSession("break")}>Break Mode</button>
+        <button type="button" className="pomodoro-mode-button break-mode-button" onClick={() => switchPomodoroSession("break")}>Break Mode</button>
       </div>
 
       <h1 className={` timer-header ${pomodoroMode === "focus" ? "focus-timer-header" : "break-timer-header"}`}>{minutesLeft} : {secondsLeft}</h1>
 
       <div className="pomodoro-mode-div">
 
-        {!timerOn && <button className="pomodoro-mode-button pomodoro-action-button" onClick={handleStartInterval}>Start</button>}
+        {!timerOn && <button type="button" className="pomodoro-mode-button pomodoro-action-button" onClick={handleStartInterval}>Start</button>}
 
-        {timerOn && <button className="pomodoro-mode-button pomodoro-action-button" onClick={handleStopInterval}>Stop</button>}
+        {timerOn && <button type="button" className="pomodoro-mode-button pomodoro-action-button" onClick={handleStopInterval}>Stop</button>}
 
-        <button className="pomodoro-mode-button pomodoro-action-button" onClick={() => {
+        <button type="button" className="pomodoro-mode-button pomodoro-action-button" onClick={() => {
           handleStopInterval();
           secondsRef.current = pomodoroMode === "focus" ? focusMinutes * 60 : breakMinutes * 60;
           setSeconds(secondsRef.current);
