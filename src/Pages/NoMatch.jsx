@@ -14,7 +14,7 @@ export default function NoMatch() {
 
                     <h1>404</h1>
                     <p>The page you're looking for does not exist</p>
-                    <Link to="/" className="action-txt">Go to Home</Link>
+                    <Link to="/">Go to Home</Link>
 
                 </div>
 
