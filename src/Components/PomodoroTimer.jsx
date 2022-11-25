@@ -38,7 +38,7 @@ export default function PomodoroTimer({ focusDuration, breakDuration }) {
 
     intervalRef.current = setInterval(() => {
       if (secondsRef.current === 0) return clearInterval(intervalRef.current);
-      handleSecondsUpdate();
+      return handleSecondsUpdate();
     }, 1000);
     setTimerOn(true);
   };
