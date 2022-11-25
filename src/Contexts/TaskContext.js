@@ -1,5 +1,4 @@
-import React from "react";
-import { useState, createContext, useContext } from "react";
+import React, { useState, createContext, useContext } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 const TaskContext = createContext();
