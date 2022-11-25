@@ -17,7 +17,7 @@ export default function Filters() {
 
             <div className="filter-pill-div">
 
-                {filterList.map((filterItem) => <div className={`filter-pill ${filter === filterItem ? "active-filter" : null}`} onClick={() => setFilter(filterItem)} key={filterItem}>
+                {filterList.map((filterItem) => <div className={`filter-pill ${filter === filterItem ? "active-filter" : null}`} onClick={() => setFilter(filterItem)} key={filterItem} role="button">
                     <p>{filterItem}</p>
                 </div>
                 )}

@@ -40,7 +40,7 @@ export default function TaskItem({ task }) {
 
             <div className="task-item-main-info">
 
-                <div onClick={startTaskHandler}>
+                <div onClick={startTaskHandler} role="button">
                     <h2 className="task-item-name">{task.title}</h2>
                 </div>
                 <p className="task-item-description">{task.description}</p>
@@ -70,14 +70,14 @@ export default function TaskItem({ task }) {
 
                     <div className="task-item-action-div">
 
-                        <div className="task-item-action delete-action" onClick={() => deleteTaskHandler(task.id)}>
+                        <div className="task-item-action delete-action" onClick={() => deleteTaskHandler(task.id)} role="button">
                             <span className="material-icons">
                                 delete
                             </span>
                             <p>Delete</p>
                         </div>
 
-                        <div className="task-item-action edit-action" onClick={() => editTaskHandler(task.id)}>
+                        <div className="task-item-action edit-action" onClick={() => editTaskHandler(task.id)} role="button">
                             <span className="material-icons">
                                 edit
                             </span>
