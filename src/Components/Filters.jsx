@@ -1,3 +1,4 @@
+import React from "react";
 import "./Styles/Filters.css";
 import { useFilter } from "../Contexts/FilterContext";
 

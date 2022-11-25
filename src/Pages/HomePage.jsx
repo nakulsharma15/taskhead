@@ -1,3 +1,4 @@
+import React from "react";
 import "./Styles/HomePage.css";
 import Header from "../Components/Header";
 import Modal from "../Components/Modal";

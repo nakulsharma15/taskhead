@@ -1,3 +1,4 @@
+import React from "react";
 import "./Styles/PomodoroTimer.css";
 import { useState, useRef, useEffect } from "react";
 

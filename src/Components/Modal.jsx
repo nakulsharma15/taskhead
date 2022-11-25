@@ -1,3 +1,4 @@
+import React from "react";
 import "./Styles/Modal.css";
 import { useState } from "react";
 import { useModal } from "../Contexts/ModalContext";

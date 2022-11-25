@@ -1,3 +1,4 @@
+import React from "react";
 import "./Styles/PomodoroPage.css";
 import Header from "../Components/Header";
 import PomodoroTimer from "../Components/PomodoroTimer";
