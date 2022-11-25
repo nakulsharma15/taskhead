@@ -198,7 +198,7 @@ export default function Modal() {
                         <div className="subtask-input">
                             <input type="text" placeholder="Enter title" value={subTask.content} onChange={(e) => setSubTask((subTask) => ({ ...subTask, content: e.target.value }))} />
 
-                            <button className="subtask-button" onClick={addSubTask}>
+                            <button type="button" className="subtask-button" onClick={addSubTask}>
                                 <span className="material-icons-outlined">
                                     add
                                 </span>
@@ -231,9 +231,9 @@ export default function Modal() {
 
                     <div className="modal-actions">
 
-                        {isTaskEdited ? <button className="add-button" onClick={() => addTask()}>Update Task</button> : <button className="add-button" onClick={() => addTask()}>Add Task</button>}
+                        {isTaskEdited ? <button type="button" className="add-button" onClick={() => addTask()}>Update Task</button> : <button type="button" className="add-button" onClick={() => addTask()}>Add Task</button>}
 
-                        <button className="cancel-button" onClick={() => {setShowModal(false); setTask(sample)}}>Cancel</button>
+                        <button type="button" className="cancel-button" onClick={() => {setShowModal(false); setTask(sample)}}>Cancel</button>
 
                     </div>
 
