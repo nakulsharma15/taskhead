@@ -121,7 +121,7 @@ export default function Modal() {
 
                         <p className="task-input-title">Description:</p>
 
-                        <textarea className="task-desc" name="task-description" id="" cols="5" rows="3" placeholder="Enter Description" value={task.description} onChange={(e) => setTask((task) => ({ ...task, description: e.target.value }))}></textarea>
+                        <textarea className="task-desc" name="task-description" id="" cols="5" rows="3" placeholder="Enter Description" value={task.description} onChange={(e) => setTask((task) => ({ ...task, description: e.target.value }))} />
 
                         {task.description.length === 0 ? <p className="subtask-length-overflow">* Description should not be empty</p> : null}
 
@@ -144,11 +144,11 @@ export default function Modal() {
                             onChange={(e) => setTask((task) => ({ ...task, focusDuration: e.target.value }))}
                         />
                         <datalist id="tickmarks">
-                            <option value="10" label="10m"></option>
-                            <option value="15" label="15m"></option>
-                            <option value="20" label="20m"></option>
-                            <option value="25" label="25m"></option>
-                            <option value="30" label="30m"></option>
+                            <option value="10" label="10m" />
+                            <option value="15" label="15m" />
+                            <option value="20" label="20m" />
+                            <option value="25" label="25m" />
+                            <option value="30" label="30m" />
                         </datalist>
 
                         <div>
@@ -175,10 +175,10 @@ export default function Modal() {
                             onChange={(e) => setTask((task) => ({ ...task, breakDuration: e.target.value }))}
                         />
                         <datalist id="tickmarks">
-                            <option value="5" label="10m"></option>
-                            <option value="10" label="15m"></option>
-                            <option value="15" label="20m"></option>
-                            <option value="20" label="25m"></option>
+                            <option value="5" label="10m" />
+                            <option value="10" label="15m" />
+                            <option value="15" label="20m" />
+                            <option value="20" label="25m" />
                         </datalist>
 
                         <div>
