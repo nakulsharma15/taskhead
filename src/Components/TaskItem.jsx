@@ -12,12 +12,14 @@ export default function TaskItem({ task }) {
 
     const navigate = useNavigate();
 
+    //function to delete the task
     const deleteTaskHandler = (taskId) => {
 
         const updatedTaskList = taskList.filter((task) => task.id !== taskId);
         setTaskList(updatedTaskList);
     }
 
+    //function to edit the task
     const editTaskHandler = (taskId) => {
         const taskToBeEdited = taskList.find((task) => task.id === taskId);
         setTask(taskToBeEdited);
@@ -25,6 +27,7 @@ export default function TaskItem({ task }) {
 
     }
 
+    //function to start the task
     const startTaskHandler = () => {
         setSelectedTask(task)
         navigate("/pomodoro");

@@ -30,6 +30,7 @@ export default function Modal() {
 
     const isTaskEdited = taskList.find((taskInList) => taskInList.id === task.id);
 
+    // function to add a task
     const addTask = () => {
 
         if (task.title.length === 0 || task.description.length === 0) {
@@ -62,6 +63,7 @@ export default function Modal() {
         }
     }
 
+    // function to add subtask
     const addSubTask = () => {
 
         if (subTask.content.length > 100) {
@@ -75,6 +77,7 @@ export default function Modal() {
         }
     }
 
+    // function to delete subtask
     const deleteSubTask = (subTaskId) => {
 
         let updatedSubTasksList = task.subTasks.filter((sub) => sub.id !== subTaskId);

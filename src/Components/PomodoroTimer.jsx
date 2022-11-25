@@ -20,16 +20,19 @@ export default function PomodoroTimer({ focusDuration, breakDuration }) {
   if (minutesLeft < 10) minutesLeft = `0${minutesLeft}`;
   if (secondsLeft < 10) secondsLeft = `0${secondsLeft}`;
 
+  // logic for pomodoro timer
   const handleSecondsUpdate = () => {
     secondsRef.current--;
     setSeconds(secondsRef.current);
   };
 
+  //stops pomodoro timer
   const handleStopInterval = () => {
     clearInterval(intervalRef.current);
     setTimerOn(false);
   };
 
+  // starts pomodoro timer
   const handleStartInterval = () => {
     clearInterval(intervalRef.current);
 
@@ -40,7 +43,7 @@ export default function PomodoroTimer({ focusDuration, breakDuration }) {
     setTimerOn(true);
   };
 
-  
+  //switches pomodoro session
   const switchPomodoroSession = (sessionName) => {
 
     setPomodoroMode(sessionName);
