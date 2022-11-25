@@ -220,7 +220,7 @@ export default function Modal() {
                                     <p> {subTaskInList.content} </p>
                                 </div>
 
-                                <span className="material-icons-outlined" onClick={() => deleteSubTask(subTaskInList.id)} role="button">
+                                <span className="material-icons-outlined" onClick={() => deleteSubTask(subTaskInList.id)} role="button" tabIndex="0">
                                     remove_circle_outline
                                 </span>
 
