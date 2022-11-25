@@ -4,6 +4,8 @@ import { useModal } from "../Contexts/ModalContext";
 import { useTask } from "../Contexts/TaskContext";
 import "./Styles/TaskItem.css";
 
+
+//function to display task item and handle it's functionality
 export default function TaskItem({ task }) {
 
     const { taskList, setTaskList, setTask, setSelectedTask } = useTask();

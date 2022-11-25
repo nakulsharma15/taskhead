@@ -2,6 +2,7 @@ import React from "react";
 import "./Styles/PomodoroTimer.css";
 import { useState, useRef, useEffect } from "react";
 
+//function to display pomodoro timer 
 export default function PomodoroTimer({ focusDuration, breakDuration }) {
 
   const focusMinutes = Number(focusDuration);

@@ -2,6 +2,7 @@ import React from "react";
 import "./Styles/Filters.css";
 import { useFilter } from "../Contexts/FilterContext";
 
+//function to display filter component
 export default function Filters() {
 
     const { filter, setFilter } = useFilter();

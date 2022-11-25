@@ -2,10 +2,13 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./Styles/Header.css";
 
+
+//function to provide header
 export default function Header() {
 
     const navigate = useNavigate();
 
+    //function that redirects to homepage
     const redirectToHome = () => {
         navigate("/")
     }

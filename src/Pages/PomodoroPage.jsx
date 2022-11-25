@@ -4,6 +4,7 @@ import Header from "../Components/Header";
 import PomodoroTimer from "../Components/PomodoroTimer";
 import { useTask } from "../Contexts/TaskContext";
 
+//function to display pomodoro page
 export default function PomodoroPage() {
 
     const { selectedTask } = useTask();

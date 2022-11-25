@@ -8,7 +8,7 @@ import { useModal } from "../Contexts/ModalContext";
 import { useTask } from "../Contexts/TaskContext";
 import { useFilter } from "../Contexts/FilterContext";
 
-
+//function to show homepage
 export default function HomePage() {
 
   const { showModal, setShowModal } = useModal();

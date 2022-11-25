@@ -5,6 +5,7 @@ import { useModal } from "../Contexts/ModalContext";
 import { useTask } from "../Contexts/TaskContext";
 import { v4 as uuidv4 } from "uuid";
 
+//function to display modal
 export default function Modal() {
 
     const { setShowModal } = useModal();
