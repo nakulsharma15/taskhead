@@ -1,6 +1,5 @@
-import React from "react";
 import "./Styles/Modal.css";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useModal } from "../Contexts/ModalContext";
 import { useTask } from "../Contexts/TaskContext";
 import { v4 as uuidv4 } from "uuid";
