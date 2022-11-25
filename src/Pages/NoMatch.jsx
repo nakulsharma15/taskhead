@@ -13,7 +13,7 @@ export default function NoMatch() {
                 <div className="no-match-content">
 
                     <h1>404</h1>
-                    <p>The page you're looking for does not exist</p>
+                    <p>The page you&apos;re looking for does not exist</p>
                     <Link to="/">Go to Home</Link>
 
                 </div>

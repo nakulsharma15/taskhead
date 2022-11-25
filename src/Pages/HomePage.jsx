@@ -45,7 +45,7 @@ export default function HomePage() {
 
       </div>
 
-      <p className="message-text">*Click on the task's title to start working on it.</p>
+      <p className="message-text">*Click on the task&apos;s title to start working on it.</p>
 
       {filteredTaskList.length !== 0 ? filteredTaskList?.map((task) => <TaskItem task={task} key={task.id} />) : <div className="flex-column-center empty-tasklist-message-div">
         <h1>No tasks yet</h1>
