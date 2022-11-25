@@ -38,7 +38,9 @@ export default function TaskItem({ task }) {
 
             <div className="task-item-main-info">
 
-                <h2 className="task-item-name" onClick={startTaskHandler}>{task.title}</h2>
+                <div onClick={startTaskHandler}>
+                    <h2 className="task-item-name">{task.title}</h2>
+                </div>
                 <p className="task-item-description">{task.description}</p>
 
                 <div className="task-item-footer">
