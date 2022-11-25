@@ -1,10 +1,12 @@
-import { useState, createContext, useContext } from "react";
+import React, { useState, createContext, useContext } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 const TaskContext = createContext();
 
+//function to use TaskContext
 const useTask = () => useContext(TaskContext);
 
+//function to provide values to and return TaskContext.Provider
 const TaskProvider = ({children}) => {
     
     const sample = {

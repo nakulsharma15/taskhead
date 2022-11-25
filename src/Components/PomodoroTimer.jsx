@@ -1,6 +1,7 @@
 import "./Styles/PomodoroTimer.css";
-import { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
+//function to display pomodoro timer 
 export default function PomodoroTimer({ focusDuration, breakDuration }) {
 
   const focusMinutes = Number(focusDuration);
@@ -19,11 +20,35 @@ export default function PomodoroTimer({ focusDuration, breakDuration }) {
   if (minutesLeft < 10) minutesLeft = `0${minutesLeft}`;
   if (secondsLeft < 10) secondsLeft = `0${secondsLeft}`;
 
+  // logic for pomodoro timer
+  const handleSecondsUpdate = () => {
+    secondsRef.current--;
+    setSeconds(secondsRef.current);
+  };
+
+  //stops pomodoro timer
+  const handleStopInterval = () => {
+    clearInterval(intervalRef.current);
+    setTimerOn(false);
+  };
+
+  // starts pomodoro timer
+  const handleStartInterval = () => {
+    clearInterval(intervalRef.current);
+
+    intervalRef.current = setInterval(() => {
+      if (secondsRef.current === 0) return clearInterval(intervalRef.current);
+      return handleSecondsUpdate();
+    }, 1000);
+    setTimerOn(true);
+  };
+
+  //switches pomodoro session
   const switchPomodoroSession = (sessionName) => {
 
     setPomodoroMode(sessionName);
 
-    let newTimeInSeconds = sessionName === "focus" ? focusMinutes * 60 : breakMinutes * 60;
+    const newTimeInSeconds = sessionName === "focus" ? focusMinutes * 60 : breakMinutes * 60;
 
     handleStopInterval();
     setTimerOn(false);
@@ -31,26 +56,6 @@ export default function PomodoroTimer({ focusDuration, breakDuration }) {
     secondsRef.current = newTimeInSeconds;
 
   }
-
-  const handleSecondsUpdate = () => {
-    secondsRef.current--;
-    setSeconds(secondsRef.current);
-  };
-
-  const handleStopInterval = () => {
-    clearInterval(intervalRef.current);
-    setTimerOn(false);
-  };
-
-  const handleStartInterval = () => {
-    clearInterval(intervalRef.current);
-
-    intervalRef.current = setInterval(() => {
-      if (secondsRef.current === 0) return clearInterval(intervalRef.current);
-      handleSecondsUpdate();
-    }, 1000);
-    setTimerOn(true);
-  };
 
   useEffect(() => {
     setSeconds(focusDuration * 60);
@@ -61,20 +66,20 @@ export default function PomodoroTimer({ focusDuration, breakDuration }) {
     <div className="pomodoro-timer-div">
 
       <div className="pomodoro-mode-div">
-        <button className="pomodoro-mode-button focus-mode-button" onClick={() => switchPomodoroSession("focus")}>Focus Mode</button>
+        <button type="button" className="pomodoro-mode-button focus-mode-button" onClick={() => switchPomodoroSession("focus")}>Focus Mode</button>
 
-        <button className="pomodoro-mode-button break-mode-button" onClick={() => switchPomodoroSession("break")}>Break Mode</button>
+        <button type="button" className="pomodoro-mode-button break-mode-button" onClick={() => switchPomodoroSession("break")}>Break Mode</button>
       </div>
 
       <h1 className={` timer-header ${pomodoroMode === "focus" ? "focus-timer-header" : "break-timer-header"}`}>{minutesLeft} : {secondsLeft}</h1>
 
       <div className="pomodoro-mode-div">
 
-        {!timerOn && <button className="pomodoro-mode-button pomodoro-action-button" onClick={handleStartInterval}>Start</button>}
+        {!timerOn && <button type="button" className="pomodoro-mode-button pomodoro-action-button" onClick={handleStartInterval}>Start</button>}
 
-        {timerOn && <button className="pomodoro-mode-button pomodoro-action-button" onClick={handleStopInterval}>Stop</button>}
+        {timerOn && <button type="button" className="pomodoro-mode-button pomodoro-action-button" onClick={handleStopInterval}>Stop</button>}
 
-        <button className="pomodoro-mode-button pomodoro-action-button" onClick={() => {
+        <button type="button" className="pomodoro-mode-button pomodoro-action-button" onClick={() => {
           handleStopInterval();
           secondsRef.current = pomodoroMode === "focus" ? focusMinutes * 60 : breakMinutes * 60;
           setSeconds(secondsRef.current);

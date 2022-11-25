@@ -1,9 +1,10 @@
 import "./Styles/Modal.css";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useModal } from "../Contexts/ModalContext";
 import { useTask } from "../Contexts/TaskContext";
 import { v4 as uuidv4 } from "uuid";
 
+//function to display modal
 export default function Modal() {
 
     const { setShowModal } = useModal();
@@ -29,6 +30,7 @@ export default function Modal() {
 
     const isTaskEdited = taskList.find((taskInList) => taskInList.id === task.id);
 
+    // function to add a task
     const addTask = () => {
 
         if (task.title.length === 0 || task.description.length === 0) {
@@ -40,7 +42,7 @@ export default function Modal() {
 
             if (isTaskEdited) {
 
-                let updatedTaskList = taskList.map((taskInList) => {
+                const updatedTaskList = taskList.map((taskInList) => {
                     if (taskInList.id === isTaskEdited.id) {
                         return task;
                     }
@@ -61,6 +63,7 @@ export default function Modal() {
         }
     }
 
+    // function to add subtask
     const addSubTask = () => {
 
         if (subTask.content.length > 100) {
@@ -68,15 +71,16 @@ export default function Modal() {
         }
         else {
 
-            let updatedSubTasksList = [...task.subTasks, { ...subTask, id: uuidv4() }]
+            const updatedSubTasksList = [...task.subTasks, { ...subTask, id: uuidv4() }]
             setTask({ ...task, subTasks: updatedSubTasksList });
             setSubTask(subTaskSample);
         }
     }
 
+    // function to delete subtask
     const deleteSubTask = (subTaskId) => {
 
-        let updatedSubTasksList = task.subTasks.filter((sub) => sub.id !== subTaskId);
+        const updatedSubTasksList = task.subTasks.filter((sub) => sub.id !== subTaskId);
         setTask({ ...task, subTasks: updatedSubTasksList });
     }
 
@@ -120,7 +124,7 @@ export default function Modal() {
 
                         <p className="task-input-title">Description:</p>
 
-                        <textarea className="task-desc" name="task-description" id="" cols="5" rows="3" placeholder="Enter Description" value={task.description} onChange={(e) => setTask((task) => ({ ...task, description: e.target.value }))}></textarea>
+                        <textarea className="task-desc" name="task-description" id="" cols="5" rows="3" placeholder="Enter Description" value={task.description} onChange={(e) => setTask((task) => ({ ...task, description: e.target.value }))} />
 
                         {task.description.length === 0 ? <p className="subtask-length-overflow">* Description should not be empty</p> : null}
 
@@ -143,11 +147,11 @@ export default function Modal() {
                             onChange={(e) => setTask((task) => ({ ...task, focusDuration: e.target.value }))}
                         />
                         <datalist id="tickmarks">
-                            <option value="10" label="10m"></option>
-                            <option value="15" label="15m"></option>
-                            <option value="20" label="20m"></option>
-                            <option value="25" label="25m"></option>
-                            <option value="30" label="30m"></option>
+                            <option value="10" label="10m" />
+                            <option value="15" label="15m" />
+                            <option value="20" label="20m" />
+                            <option value="25" label="25m" />
+                            <option value="30" label="30m" />
                         </datalist>
 
                         <div>
@@ -174,10 +178,10 @@ export default function Modal() {
                             onChange={(e) => setTask((task) => ({ ...task, breakDuration: e.target.value }))}
                         />
                         <datalist id="tickmarks">
-                            <option value="5" label="10m"></option>
-                            <option value="10" label="15m"></option>
-                            <option value="15" label="20m"></option>
-                            <option value="20" label="25m"></option>
+                            <option value="5" label="10m" />
+                            <option value="10" label="15m" />
+                            <option value="15" label="20m" />
+                            <option value="20" label="25m" />
                         </datalist>
 
                         <div>
@@ -194,7 +198,7 @@ export default function Modal() {
                         <div className="subtask-input">
                             <input type="text" placeholder="Enter title" value={subTask.content} onChange={(e) => setSubTask((subTask) => ({ ...subTask, content: e.target.value }))} />
 
-                            <button className="subtask-button" onClick={addSubTask}>
+                            <button type="button" className="subtask-button" onClick={addSubTask}>
                                 <span className="material-icons-outlined">
                                     add
                                 </span>
@@ -215,7 +219,7 @@ export default function Modal() {
                                     <p> {subTaskInList.content} </p>
                                 </div>
 
-                                <span className="material-icons-outlined" onClick={() => deleteSubTask(subTaskInList.id)}>
+                                <span className="material-icons-outlined" onClick={() => deleteSubTask(subTaskInList.id)} role="button" tabIndex="0">
                                     remove_circle_outline
                                 </span>
 
@@ -227,9 +231,9 @@ export default function Modal() {
 
                     <div className="modal-actions">
 
-                        {isTaskEdited ? <button className="add-button" onClick={() => addTask()}>Update Task</button> : <button className="add-button" onClick={() => addTask()}>Add Task</button>}
+                        {isTaskEdited ? <button type="button" className="add-button" onClick={() => addTask()}>Update Task</button> : <button type="button" className="add-button" onClick={() => addTask()}>Add Task</button>}
 
-                        <button className="cancel-button" onClick={() => {setShowModal(false); setTask(sample)}}>Cancel</button>
+                        <button type="button" className="cancel-button" onClick={() => {setShowModal(false); setTask(sample)}}>Cancel</button>
 
                     </div>
 

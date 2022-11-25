@@ -1,8 +1,10 @@
+import React from "react";
 import "./Styles/PomodoroPage.css";
 import Header from "../Components/Header";
 import PomodoroTimer from "../Components/PomodoroTimer";
 import { useTask } from "../Contexts/TaskContext";
 
+//function to display pomodoro page
 export default function PomodoroPage() {
 
     const { selectedTask } = useTask();
@@ -39,7 +41,7 @@ export default function PomodoroPage() {
 
                     <ul>
                         {selectedTask.subTasks.map((subTask) => {
-                            return <li>{subTask.content}</li>
+                            return <li key={subTask.id}>{subTask.content}</li>
                         })}
                     </ul>
 

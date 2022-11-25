@@ -1,3 +1,4 @@
+import React from "react";
 import "./Styles/HomePage.css";
 import Header from "../Components/Header";
 import Modal from "../Components/Modal";
@@ -7,7 +8,7 @@ import { useModal } from "../Contexts/ModalContext";
 import { useTask } from "../Contexts/TaskContext";
 import { useFilter } from "../Contexts/FilterContext";
 
-
+//function to show homepage
 export default function HomePage() {
 
   const { showModal, setShowModal } = useModal();
@@ -34,7 +35,7 @@ export default function HomePage() {
 
           <Filters />
 
-          <button onClick={() => setShowModal(true)} className="add-task-button">
+          <button type="button" onClick={() => setShowModal(true)} className="add-task-button">
             <p>Add a new task</p>
             <span className="material-icons-outlined">
               add
@@ -44,7 +45,7 @@ export default function HomePage() {
 
       </div>
 
-      <p className="message-text">*Click on the task's title to start working on it.</p>
+      <p className="message-text">*Click on the task&apos;s title to start working on it.</p>
 
       {filteredTaskList.length !== 0 ? filteredTaskList?.map((task) => <TaskItem task={task} key={task.id} />) : <div className="flex-column-center empty-tasklist-message-div">
         <h1>No tasks yet</h1>
