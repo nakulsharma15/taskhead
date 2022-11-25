@@ -48,7 +48,7 @@ export default function PomodoroTimer({ focusDuration, breakDuration }) {
 
     setPomodoroMode(sessionName);
 
-    let newTimeInSeconds = sessionName === "focus" ? focusMinutes * 60 : breakMinutes * 60;
+    const newTimeInSeconds = sessionName === "focus" ? focusMinutes * 60 : breakMinutes * 60;
 
     handleStopInterval();
     setTimerOn(false);
